@@ -185,16 +185,19 @@
             coord_value_x = 600 + coord_value_x * scale_x
             coord_value_y = 900 - coord_value_y *scale_y
             if (p1 != ''){
+                if ((Math.sign(p1[1]) == Math.sign(coord_value_y)) | ((Math.abs(p1[1]-coord_value_y)) < 100000)){
                 c.beginPath()
                 c.moveTo(p1[0],p1[1])
                 c.lineTo(coord_value_x,coord_value_y)
                 c.stroke()
+                }
             }
             p1 = [coord_value_x,coord_value_y]
-            // if ((Number.isNaN(coord_value_x)) | (Number.isNaN(coord_value_y))){
-            //     console.log("nan point")
-            //     p1 = ''
-            // }
+            if ((Number.isNaN(coord_value_x)) | (Number.isNaN(coord_value_y))){
+                console.log("nan point")
+                p1 = ''
+            }
+            
         }
         console.log('graphed')
         }
